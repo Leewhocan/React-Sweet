@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body{
+  h1{
+    span{
+      color:blue;
+    }
+  }
+}
+
+header{
+  border: 2px solid rgb(228, 219, 219);
+  img{
+      margin-right: 15px;
+      margin-left:5px;
+    }
+    
+
+  }
+  h3,p{
+    margin:0;
+  };
+.card{
+  border: 1px solid #F3F3F3;
+  padding: 20px;
+  width: 220px;
+  border-radius: 40px;
+ 
+  .h5{
+    font-weight: 400;
+    font-size:14px ;
+  }
+}
+
+
+.button 
+{
+  background: #FFFFFF;
+  border: 1px solid #F2F2F2;
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+}
