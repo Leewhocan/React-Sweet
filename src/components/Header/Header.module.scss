@@ -1,0 +1,44 @@
+.Head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+.parg {
+}
+
+.menu {
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+@media screen and (max-width: 786px) {
+  .Head {
+    flex-direction: column;
+  }
+  .parg {
+    display: none;
+  }
+
+  .menu {
+    margin-right: 25px;
+  }
+}
+@media screen and (max-width: 636px) {
+  .parg {
+    display: none;
+  }
+
+  .menu {
+    margin-right: 15px;
+  }
+}
+@media screen and (max-width: 586px) {
+  .parg {
+    display: none;
+  }
+
+  .menu {
+    margin-right: 5px;
+  }
+}

@@ -23,68 +23,69 @@ function Drawer({ items = [], onCloseCart, onRemove }) {
     });
   };
   const Drawerprice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
-  //items.forEach((elem) => console.log(elem));
-  //деструктуризируем пропс, и для items значение по умолчанию пустой массив,ччтобы не рендерилось
+
   return (
     <div className="overlay_shadow">
       <div className="dragger d-flex flex-column">
-        <h2 className="d-flex justify-between mb-30">
-          Корзина{" "}
-          <img
-            onClick={onCloseCart}
-            className="cu-p"
-            height={30}
-            width={30}
-            src="/img/rejected.png"
-          ></img>
-        </h2>
-        {items.length > 0 ? (
-          <div>
-            <div className="Items">
-              {items.map((obj) => (
-                <div className="cartItem d-flex align-center mb-20">
-                  <div
-                    style={{ backgroundImage: `url(${obj.ImgUrl})` }}
-                    className="cartItemImg"
-                  ></div>
+        <div className="p-30">
+          <h2 className="d-flex justify-between mb-30">
+            Корзина{" "}
+            <img
+              onClick={onCloseCart}
+              className="cu-p"
+              height={30}
+              width={30}
+              src="/img/rejected.png"
+            ></img>
+          </h2>
+          {items.length > 0 ? (
+            <div>
+              <div className="Items">
+                {items.map((obj) => (
+                  <div className="cartItem d-flex flex-wrap align-center mb-20">
+                    <div
+                      style={{ backgroundImage: `url(${obj.ImgUrl})` }}
+                      className="cartItemImg"
+                    ></div>
 
-                  <div className="mr-20 flex">
-                    <p className="mb-5">{obj.title})</p>
-                    <b>{obj.price}</b>
+                    <div className="mr-20 flex">
+                      <p className="mb-5">{obj.title})</p>
+                      <b>{obj.price}</b>
+                    </div>
+
+                    <img
+                      onClick={() => onRemove(obj.id)}
+                      className="removeBtn"
+                      src="/img/rejected.png"
+                      height={25}
+                      width={25}
+                    ></img>
                   </div>
+                ))}
+              </div>
 
-                  <img
-                    onClick={() => onRemove(obj.id)}
-                    className="removeBtn"
-                    src="/img/rejected.png"
-                    height={25}
-                    width={25}
-                  ></img>
-                </div>
-              ))}
+              <div className="total-block">
+                <ul>
+                  <li className="d-flex">
+                    <span>Итого:</span>
+                    <div></div>
+                    <b>{Drawerprice} руб.</b>
+                  </li>
+                  <li className="d-flex">
+                    <span>Налог 5%</span>
+                    <div></div>
+                    <b>{(Drawerprice * 5) / 100} руб.</b>
+                  </li>
+                </ul>
+                <button disabled={isLoad} onClick={onClickOrder}>
+                  Оформить заказ
+                </button>
+              </div>
             </div>
-
-            <div className="total-block">
-              <ul>
-                <li className="d-flex">
-                  <span>Итого:</span>
-                  <div></div>
-                  <b>{Drawerprice} руб.</b>
-                </li>
-                <li className="d-flex">
-                  <span>Налог 5%</span>
-                  <div></div>
-                  <b>{(Drawerprice * 5) / 100} руб.</b>
-                </li>
-              </ul>
-              <button disabled={isLoad} onClick={onClickOrder}>
-                Оформить заказ
-              </button>
-            </div>
-          </div>
-        ) : (
-          <Info title={isOreder ? "Заказ оформлен!" : "Корзина пуста"} />
-        )}
+          ) : (
+            <Info title={isOreder ? "Заказ оформлен!" : "Корзина пуста"} />
+          )}
+        </div>
       </div>
     </div>
   );

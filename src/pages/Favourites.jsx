@@ -10,7 +10,7 @@ function Favourites({ onAddFavourite }) {
         <h1 className="pl-10">Мои закладки</h1>
       </div>
 
-      <div className="d-flex flex-wrap p-30">
+      <div style={{ gap: 60 }} className="d-flex flex-wrap p-30">
         {Favourite.map((item) => (
           <Card //возвращает html элементы но сам по себе не является html элментом он обьект(react компонент) поэтому его свойства могут быть любыми в то время как, у html тега есть только твои свойства и точка, ты не можешь тегу задать свойство со своим именем
             id={item.id}

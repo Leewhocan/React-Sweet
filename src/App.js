@@ -4,26 +4,23 @@ import React from "react";
 import "macro-css";
 import "./index.scss";
 import { Route, Routes } from "react-router-dom";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Drawer from "./components/CartDrawer";
 import axios from "axios";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Favourites from "./pages/Favourites";
 import Orders from "./pages/Orders";
-import Login from "./pages/Login";
-import Aboutus from "./pages/Aboutus";
+import Login from "./pages/Login/Login";
+import Aboutus from "./pages/Aboutus/Aboutus";
 
 export const StorageAppContext = React.createContext({}); //точечный экспорт
 
 function App() {
-  // useState 5 - начальное значение счетчика, count-счетчик, setcount-установка счетчика в новое значение которому будет равен count
-
   const [items, setItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
   const [Favourite, setFavoirite] = React.useState([]);
   const [isLoad, setIsLoad] = React.useState(true);
 
-  const [count, setCount] = React.useState(5);
   const [cartIsOpen, setCartIsOpen] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
 
@@ -126,12 +123,8 @@ function App() {
     );
   };
 
-  //но лучше конечно так setCartItems(prev=>[...prev,obj]) - чек уроки по useState
-
-  //console.log(cartItems);
-
   const changeInput = (event) => {
-    console.log(event.target.value); //target - ссылка на обьект кторый был инициатором события
+    //console.log(event.target.value);
     setSearchValue(event.target.value);
   };
 
@@ -160,7 +153,6 @@ function App() {
           />
         ) : null}
 
-        {/*  onClickCart - событие которе передаем анонмную функцию которая вызвает метод setCartIsOpen  */}
         <Header onClickCart={() => setCartIsOpen(true)} />
 
         <Routes>

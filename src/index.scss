@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;500;700&display=swap");
-
+.HeadOfSite {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
 body {
   margin: 0;
   font-family: "Inter", system-ui;
@@ -25,7 +29,8 @@ body {
 }
 
 header {
-  border: 2px solid rgb(228, 219, 219);
+  border-bottom: 2px solid rgb(228, 219, 219);
+
   img {
     margin-right: 15px;
     margin-left: 5px;
@@ -47,7 +52,7 @@ p {
     width: 15px;
     height: 15px;
     right: 20px;
-    top: 8px;
+    top: 3.5px;
     cursor: pointer;
   }
 }
@@ -69,7 +74,7 @@ p {
 }
 
 .overlay_shadow {
-  position: absolute;
+  position: fixed;
   left: 0;
   width: 100%;
   height: 100%;
@@ -79,13 +84,12 @@ p {
 
 .dragger {
   position: absolute;
-
   right: 0;
-  width: 420px;
+  max-width: 420px;
   height: 100%;
   background: #ffffff;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.01);
-  padding: 30px;
+
   .Items {
     overflow: auto;
     margin-bottom: 40px;
@@ -161,4 +165,10 @@ p {
 
 .Items {
   flex: 1;
+}
+
+@media screen and (max-width: 786px) {
+  .HeadOfSite {
+    padding: 0;
+  }
 }

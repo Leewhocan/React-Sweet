@@ -9,19 +9,19 @@ function Card({
   ImgUrl,
   onPlus,
   onFavourite,
-  isFav = false,
+  isFav = false, //по умолчанию все сердца пустые
   added = false,
   isLoad = false,
 }) {
   const { isItemAdded } = React.useContext(StorageAppContext);
 
-  const [isFavourite, setIsFavourite] = React.useState(isFav);
+  const [isFavourite, setIsFavourite] = React.useState(isFav); //хук для сердца
 
   const obj = { id, parentId: id, title, ImgUrl, price };
 
   const onClickFavouite = () => {
     onFavourite(obj);
-    setIsFavourite(!isFavourite);
+    setIsFavourite(!isFavourite); //меняем сердце на противположное
   };
 
   const handleClickPlus = () => {
@@ -62,7 +62,7 @@ function Card({
           <div className="d-flex justify-between align-center">
             <div className="d-flex flex-column">
               <span>Цена:</span>
-              <b>{price}</b>
+              <b>{price} руб</b>
             </div>
 
             <img

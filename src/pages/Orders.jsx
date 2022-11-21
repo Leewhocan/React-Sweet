@@ -22,7 +22,7 @@ function Orders({ onAddFavourite }) {
         <h1 className="pl-10">Мои заказы</h1>
       </div>
 
-      <div className="d-flex flex-wrap p-30">
+      <div style={{ gap: 60 }} className=" d-flex flex-wrap p-30">
         {orders.map((item) => (
           <Card
             id={item.id}
